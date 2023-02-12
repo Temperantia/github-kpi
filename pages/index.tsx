@@ -1,14 +1,12 @@
 import { InferGetServerSidePropsType } from "next";
-import { Octokit } from "octokit";
 import { Table } from "flowbite-react";
 import { keys, values } from "lodash";
 import LeftNavigation from "@/components/LeftNavigation";
-
-const octokit = new Octokit();
+import { getPublicRepos } from "@/lib/github";
 
 export const getServerSideProps = async () => {
   try {
-    const { data } = await octokit.rest.repos.listPublic();
+    const { data } = await getPublicRepos();
     return {
       props: {
         data: {
