@@ -46,7 +46,6 @@ style:
 data:
 - lodash
 - zustand
-- graphql
 - chart.js
 
 growth:
